@@ -20,15 +20,16 @@ function setup() {
   player.color = 'blue';
   floor = new Sprite(SCREEN_WIDTH/2, SCREEN_HIEGHT, SCREEN_WIDTH, 5, 's');
   floor.color = ("black")
-  world.gravity.y=10;
-  document.addEventListener("keydown", function(event) {
-  if (event.code === 'ArrowUp')  
-    player.vel.y = -8;
-});
-document.addEventListener("keyup", function(event) {
-  if (event.code === 'ArrowUp')  
-    player.vel.y = 0;
-});
+  world.gravity.y=75;
+  player.bounciness = 0;
+  floor.bounciness = 0;
+   document.addEventListener("keydown", 
+        function(event) {
+          if(player.y > 380)
+            player.vel.y = -22;
+            console.log(player.y);
+    });
+
 }
 
 
@@ -37,6 +38,7 @@ document.addEventListener("keyup", function(event) {
 /*******************************************************/
 function draw() {
   background("grey");
+  console.log(player.y);
 }
 
 /*******************************************************/
